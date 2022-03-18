@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    
+    <div class="container">
+      <h1>Your Time</h1>
+      <p class="par"></p>
+    </div>
+    
+    <script>
+      let date;
+      let tm;
+      let dy;
+      let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      setInterval(() => {
+        date = new Date();
+        let gs = date.getSeconds().toLocaleString().length==1?"0"+date.getSeconds():date.getSeconds()
+        tm =
+          date.getHours() +
+          " : " +
+          date.getMinutes() +
+          " : " +
+          gs;
+        dy = date.toLocaleDateString(undefined,options);
+        document.getElementsByClassName("par")[0].innerHTML = tm + " <br/>on " + dy;
+      }, 1000);
+    </script>
+  </body>
+</html>
